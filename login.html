@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Pathly</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="login-page">
+  <div class="glass login-card">
+    <div class="nav-logo login-logo">
+      <img src="logo.png" class="logo-icon">
+      <span>Pathly</span>
+    </div>
+
+    <h1>Masuk ke Pathly</h1>
+    <p>Kelola mentoring, loker, dan persiapan karirmu dalam satu platform.</p>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input id="loginEmail" type="email" placeholder="nama@email.com">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input id="loginPassword" type="password" placeholder="Masukkan password">
+    </div>
+
+    <button class="modal-submit login-btn" onclick="dummyLogin()">
+      Login →
+    </button>
+
+    <button class="btn-ghost login-secondary" onclick="window.location.href='home.html'">
+      Kembali ke Home
+    </button>
+  </div>
+</section>
+
+<script>
+  function dummyLogin() {
+    const email = document.getElementById("loginEmail").value.trim();
+
+    if (!email) {
+      alert("Email wajib diisi.");
+      return;
+    }
+
+    localStorage.setItem("pathly_user", JSON.stringify({
+      name: "Christopher Aaron",
+      email: email,
+      city: "Surabaya"
+    }));
+
+    window.location.href = "home.html";
+  }
+</script>
+<div class="mobile-bottom-nav">
+  <a href="home.html">Home</a>
+  <a href="loker.html">Loker</a>
+  <a href="mentoring.html">Mentor</a>
+  <a href="campus.html">Campus</a>
+</div>
+</body>
+</html>

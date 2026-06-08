@@ -1,0 +1,28 @@
+<nav>
+  <a class="nav-logo" href="home.html">
+    <img src="logo.png" alt="Pathly Logo" class="logo-icon">
+    <span>Pathly</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="loker.html">Loker</a></li>
+    <li><a href="mentoring.html">Mentoring & CV Review</a></li>
+    <li><a href="campus.html">Campus</a></li>
+  </ul>
+
+  <button class="nav-cta" onclick="window.location.href='login.html'">
+    Mulai Sekarang
+  </button>
+
+  <div id="profileMenu" class="profile-menu hidden">
+    <button class="profile-circle" id="profileInitial" type="button" onclick="toggleDropdown(event)">
+      U
+    </button>
+
+    <div id="dropdownMenu" class="dropdown hidden">
+      <button type="button" onclick="goProfile(event)">Profile</button>
+      <button type="button" onclick="logout(event)">Logout</button>
+    </div>
+  </div>
+</nav>

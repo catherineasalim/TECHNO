@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus — Pathly</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<section id="campus" class="active">
+
+  <div class="campus-hero">
+    <div class="section-label">PATHLY × CAMPUS</div>
+
+    <div class="section-title">
+      Program Kolaborasi <span>Kampus</span>
+    </div>
+
+    <p class="about-text">
+      Pathly bekerja sama dengan career center universitas untuk membawa akses mentoring
+      dan persiapan karir langsung ke mahasiswa di kampusmu.
+    </p>
+
+    <button class="btn-primary campus-main-btn" onclick="openCampusModal()">
+      Ajukan Kerjasama Kampus →
+    </button>
+  </div>
+
+  <!-- CAMPUS PROGRAMS -->
+  <div class="campus-program-grid">
+
+    <div class="glass campus-program-card">
+      <div class="program-label">PROGRAM 01</div>
+      <h3>Campus Ambassador</h3>
+      <p>
+        Jadi representasi Pathly di kampusmu. Dapatkan reward, akses mentoring gratis,
+        dan bangun jejak kepemimpinan yang nyata.
+      </p>
+
+      <ul>
+        <li>✓ Akses mentoring gratis 2x/bulan</li>
+        <li>✓ Komisi untuk setiap referral</li>
+        <li>✓ Sertifikat leadership Pathly</li>
+        <li>✓ Prioritas akses loker eksklusif</li>
+      </ul>
+    </div>
+
+    <div class="glass campus-program-card">
+      <div class="program-label">PROGRAM 02</div>
+      <h3>Career Center Integration</h3>
+      <p>
+        Integrasi platform Pathly dengan career center kampus agar mahasiswa bisa
+        book mentor langsung dari ekosistem kampus.
+      </p>
+
+      <ul>
+        <li>✓ Single sign-on dengan akun kampus</li>
+        <li>✓ Dashboard laporan untuk career center</li>
+        <li>✓ Kuota mentoring subsidi kampus</li>
+        <li>✓ Laporan analitik penempatan kerja</li>
+      </ul>
+    </div>
+
+    <div class="glass campus-program-card">
+      <div class="program-label">PROGRAM 03</div>
+      <h3>Industry Talk Series</h3>
+      <p>
+        Seri webinar dan talkshow langsung dari profesional industri yang relevan
+        dengan jurusan dan tren pasar kerja terkini.
+      </p>
+
+      <ul>
+        <li>✓ 2x webinar per bulan</li>
+        <li>✓ Q&A langsung dengan speaker</li>
+        <li>✓ Rekaman akses selamanya</li>
+        <li>✓ Sertifikat kehadiran digital</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- UNIVERSITY PARTNERS -->
+  <div class="glass campus-partner-card">
+    <h2>Universitas partner kami</h2>
+    <p>
+      Pathly sudah bekerja sama dengan berbagai universitas di Surabaya dan terus berkembang.
+    </p>
+
+    <div class="partner-badges">
+      <span>Petra Christian University</span>
+      <span>+ Kampus Lainnya</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- CAMPUS MODAL -->
+<div class="modal-overlay" id="campusModal">
+  <div class="modal">
+
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeCampusModal()">✕</button>
+
+      <div class="modal-header-badge">
+        🎓 Campus Partnership
+      </div>
+
+      <h3>Ajukan Kerjasama Kampus</h3>
+      <p class="modal-desc">
+        Lengkapi data kampus dan pilih paket program yang sesuai.
+      </p>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section-title">Data Kampus</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nama Universitas</label>
+          <input id="campusName" placeholder="Contoh: Universitas Kristen Petra">
+        </div>
+
+        <div class="form-group">
+          <label>Nama PIC</label>
+          <input id="campusPic" placeholder="Nama penanggung jawab">
+        </div>
+
+        <div class="form-group">
+          <label>Email PIC</label>
+          <input id="campusEmail" type="email" placeholder="email@kampus.ac.id">
+        </div>
+
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input id="campusPhone" placeholder="08xxxxxxxxxx">
+        </div>
+
+        <div class="form-group">
+          <label>Jabatan PIC</label>
+          <input id="campusRole" placeholder="Career Center / Dosen / Himpunan">
+        </div>
+
+        <div class="form-group">
+          <label>Estimasi Peserta</label>
+          <input id="campusParticipants" placeholder="Contoh: 100 mahasiswa">
+        </div>
+
+        <div class="form-group full">
+          <label>Pilih Paket</label>
+          <select id="campusPackage">
+            <option value="">Pilih Paket Program</option>
+            <option>Career Talk</option>
+            <option>CV Review Day</option>
+            <option>Mock Interview Program</option>
+            <option>Full Career Readiness Package</option>
+            <option>Konsultasi lebih lanjut via WhatsApp</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Kebutuhan Program</label>
+          <textarea id="campusNeeds" placeholder="Ceritakan kebutuhan kampus atau program yang ingin dibuat..."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="modal-cancel" onclick="closeCampusModal()">Batal</button>
+        <button class="modal-submit" onclick="submitCampusForm()">Ajukan →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal success-modal">
+    <button class="modal-close" onclick="closeSuccessModal()">✕</button>
+
+    <div class="success-icon">✓</div>
+
+    <h3 id="successTitle">Berhasil</h3>
+    <p id="successMessage">Data berhasil diproses.</p>
+
+    <button class="modal-submit" onclick="closeSuccessModal()">Selesai</button>
+  </div>
+</div>
+
+
+<script src="script.js" defer></script>
+<div class="mobile-bottom-nav">
+  <a href="home.html">Home</a>
+  <a href="loker.html">Loker</a>
+  <a href="mentoring.html">Mentor</a>
+  <a href="campus.html">Campus</a>
+</div>
+</body>
+</html>

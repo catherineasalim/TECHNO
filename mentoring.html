@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentoring & CV Review — Pathly</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<section id="mentoring" class="active">
+
+  <div class="mentoring-header">
+    <div>
+      <div class="section-label">Mentoring & CV Review</div>
+      <div class="section-title">Pilih mentor <span>terbaikmu</span></div>
+      <p class="about-text">
+        Konsultasi langsung dengan mentor profesional untuk CV, interview, dan arah karir.
+      </p>
+    </div>
+
+    <button class="btn-ghost" onclick="openMentorRegisterModal()">
+      Daftar Jadi Mentor →
+    </button>
+  </div>
+
+  <div class="mentor-grid" id="mentorGrid"></div>
+
+</section>
+
+<!-- BOOKING MENTOR MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal booking-modal">
+
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeBookingModal()">✕</button>
+
+      <div class="modal-header-badge">
+        👨‍🏫 Mentoring Session
+      </div>
+
+      <h3>Book Sesi Mentor</h3>
+      <p class="modal-desc" id="bookingMentorText">
+        Lengkapi data diri dan pilih tipe sesi mentoring.
+      </p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section-title">Data Mentee</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input id="bookName" placeholder="Contoh: Christopher Aaron">
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input id="bookEmail" type="email" placeholder="nama@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input id="bookPhone" placeholder="08xxxxxxxxxx">
+        </div>
+
+        <div class="form-group">
+          <label>Universitas</label>
+          <input id="bookUniversity" placeholder="Universitas asal">
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select id="bookStatus">
+            <option value="">Pilih Status</option>
+            <option>Mahasiswa Semester Akhir</option>
+            <option>Fresh Graduate</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Jurusan</label>
+          <input id="bookMajor" placeholder="Contoh: Informatika">
+        </div>
+      </div>
+
+      <div class="modal-section-title session-title">Pilih Tipe Sesi</div>
+
+      <div class="session-options">
+        <button type="button" class="session-card active" onclick="selectSessionType(this, 'Mentoring Saja')">
+          <div class="session-icon">💬</div>
+          <h4>Mentoring Saja</h4>
+          <p>Diskusi karir & advice</p>
+        </button>
+
+        <button type="button" class="session-card" onclick="selectSessionType(this, 'CV Review')">
+          <div class="session-icon">📄</div>
+          <h4>+ CV Review</h4>
+          <p>Mentor review CV kamu</p>
+        </button>
+
+        <button type="button" class="session-card" onclick="selectSessionType(this, 'Mock Interview')">
+          <div class="session-icon">🎤</div>
+          <h4>Mock Interview</h4>
+          <p>Simulasi + feedback</p>
+        </button>
+
+        <button type="button" class="session-card" onclick="selectSessionType(this, 'Paket Lengkap')">
+          <div class="session-icon">📦</div>
+          <h4>Paket Lengkap</h4>
+          <p>Semua fitur di atas</p>
+        </button>
+      </div>
+
+      <div class="form-group full booking-time">
+        <label>Pilih Tanggal & Waktu</label>
+        <input id="bookDateTime" type="datetime-local">
+      </div>
+
+      <div class="form-group full">
+        <label>Catatan untuk Mentor</label>
+        <textarea id="bookNeeds" placeholder="Ceritakan situasimu atau hal yang ingin dibahas..."></textarea>
+      </div>
+
+      <div class="modal-footer single">
+        <button class="modal-submit" onclick="submitBookingForm()">
+          Konfirmasi Booking →
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER AS MENTOR MODAL -->
+<div class="modal-overlay" id="mentorRegisterModal">
+  <div class="modal">
+
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeMentorRegisterModal()">✕</button>
+
+      <div class="modal-header-badge">
+        🌟 Mentor Application
+      </div>
+
+      <h3>Daftar Jadi Mentor</h3>
+      <p class="modal-desc">
+        Bagikan pengalaman profesionalmu dan bantu mahasiswa memulai karir dengan lebih percaya diri.
+      </p>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section-title">Data Calon Mentor</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input id="mentorRegName" placeholder="Nama lengkap">
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input id="mentorRegEmail" type="email" placeholder="nama@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input id="mentorRegPhone" placeholder="08xxxxxxxxxx">
+        </div>
+
+        <div class="form-group">
+          <label>LinkedIn URL</label>
+          <input id="mentorRegLinkedin" placeholder="linkedin.com/in/username">
+        </div>
+
+        <div class="form-group">
+          <label>Posisi Saat Ini</label>
+          <input id="mentorRegRole" placeholder="Contoh: HR Specialist">
+        </div>
+
+        <div class="form-group">
+          <label>Perusahaan</label>
+          <input id="mentorRegCompany" placeholder="Nama perusahaan">
+        </div>
+
+        <div class="form-group">
+          <label>Bidang Mentoring</label>
+          <select id="mentorRegExpertise">
+            <option value="">Pilih Bidang</option>
+            <option>CV Review</option>
+            <option>Interview Preparation</option>
+            <option>Career Planning</option>
+            <option>UI/UX Career</option>
+            <option>Data Career</option>
+            <option>Business & Marketing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Pengalaman Kerja</label>
+          <select id="mentorRegExperience">
+            <option value="">Pilih Pengalaman</option>
+            <option>1–2 Tahun</option>
+            <option>3–5 Tahun</option>
+            <option>5+ Tahun</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Alasan Ingin Menjadi Mentor</label>
+          <textarea id="mentorRegReason" placeholder="Ceritakan motivasimu menjadi mentor di Pathly"></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="modal-submit" onclick="submitMentorRegisterForm()">Ajukan Pendaftaran</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal success-modal">
+    <button class="modal-close" onclick="closeSuccessModal()">✕</button>
+
+    <div class="success-icon">✓</div>
+
+    <h3 id="successTitle">Berhasil</h3>
+    <p id="successMessage">Data berhasil diproses.</p>
+
+    <button class="modal-submit" onclick="closeSuccessModal()">Selesai</button>
+  </div>
+</div>
+
+
+<script src="script.js" defer></script>
+<div class="mobile-bottom-nav">
+  <a href="home.html">Home</a>
+  <a href="loker.html">Loker</a>
+  <a href="mentoring.html">Mentor</a>
+  <a href="campus.html">Campus</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — Pathly</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<section class="active profile-page">
+
+  <div class="section-label">USER PROFILE</div>
+  <div class="section-title">
+    Profil <span>Pengguna</span>
+  </div>
+
+  <p class="about-text profile-subtitle">
+    Kelola data pribadi, progress karir, dan pembelian aktif kamu di Pathly.
+  </p>
+
+  <div class="profile-layout">
+
+    <!-- LEFT PROFILE CARD -->
+    <div class="glass profile-card-main">
+      <div class="profile-avatar-large">C</div>
+
+      <h3>Christopher Aaron</h3>
+      <p>Mahasiswa Semester Akhir</p>
+
+      <div class="profile-info-list">
+        <div>
+          <span>Email</span>
+          <strong>aaron@student.ac.id</strong>
+        </div>
+
+        <div>
+          <span>Universitas</span>
+          <strong>Universitas Kristen Petra</strong>
+        </div>
+
+        <div>
+          <span>Jurusan</span>
+          <strong>Informatika</strong>
+        </div>
+
+        <div>
+          <span>Lokasi</span>
+          <strong>Surabaya</strong>
+        </div>
+      </div>
+
+      <button class="btn-primary profile-btn" onclick="saveProfile()">
+        Simpan Profile
+      </button>
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+    <div class="profile-right">
+
+      <!-- CAREER PROGRESS -->
+      <div class="glass profile-progress-card">
+        <h3>Career Progress</h3>
+
+        <div class="profile-stat">
+          <span>CV Review</span>
+          <strong>2x selesai</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span>Mock Interview</span>
+          <strong>1x selesai</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span>Mentoring</span>
+          <strong>3 sesi</strong>
+        </div>
+
+        <div class="profile-stat">
+          <span>Lamaran Dikirim</span>
+          <strong>5 lowongan</strong>
+        </div>
+      </div>
+
+
+      <!-- CURRENT PURCHASES -->
+      <div class="glass profile-purchases-card">
+        <h3>Current Purchases</h3>
+
+        <div class="purchase-item">
+          <div>
+            <strong>Career Mentoring Session</strong>
+            <span>Mentor: Nadia Putri</span>
+          </div>
+          <span class="purchase-status active">Active</span>
+        </div>
+
+        <div class="purchase-item">
+          <div>
+            <strong>CV Review Package</strong>
+            <span>Status: Waiting for review</span>
+          </div>
+          <span class="purchase-status pending">Pending</span>
+        </div>
+
+        <div class="purchase-item">
+          <div>
+            <strong>Mock Interview</strong>
+            <span>Scheduled: 23 Apr 2026</span>
+          </div>
+          <span class="purchase-status scheduled">Scheduled</span>
+        </div>
+      </div>
+
+
+      <!-- APPLICATION HISTORY -->
+      <div class="glass profile-purchases-card">
+        <h3>Application History</h3>
+
+        <div class="purchase-item">
+          <div>
+            <strong>Frontend Developer</strong>
+            <span>Astra Digital · Remote</span>
+          </div>
+          <span class="purchase-status pending">In Review</span>
+        </div>
+
+        <div class="purchase-item">
+          <div>
+            <strong>Data Analyst</strong>
+            <span>Grab Indonesia · Surabaya</span>
+          </div>
+          <span class="purchase-status active">Submitted</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal success-modal">
+    <button class="modal-close" onclick="closeSuccessModal()">✕</button>
+
+    <div class="success-icon">✓</div>
+
+    <h3 id="successTitle">Berhasil</h3>
+    <p id="successMessage">Data berhasil diproses.</p>
+
+    <button class="modal-submit" onclick="closeSuccessModal()">
+      Selesai
+    </button>
+  </div>
+</div>
+
+
+<script src="script.js" defer></script>
+<div class="mobile-bottom-nav">
+  <a href="home.html">Home</a>
+  <a href="loker.html">Loker</a>
+  <a href="mentoring.html">Mentor</a>
+  <a href="campus.html">Campus</a>
+</div>
+</body>
+</html>
