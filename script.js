@@ -1012,3 +1012,57 @@ window.openPaymentModal = openPaymentModal;
 window.closePaymentModal = closePaymentModal;
 window.selectPaymentMethod = selectPaymentMethod;
 window.confirmSubscription = confirmSubscription;
+
+
+/* =====================================================
+   MOBILE NAV ACTIVE + HIDE BOTTOM NAV WHEN MODAL OPEN
+===================================================== */
+
+function updateMobileBottomNavActive() {
+  const currentPage = window.location.pathname.split("/").pop() || "home.html";
+
+  document.querySelectorAll(".mobile-bottom-nav a").forEach(link => {
+    const linkPage = link.getAttribute("href");
+
+    link.classList.remove("active");
+
+    if (linkPage === currentPage) {
+      link.classList.add("active");
+    }
+
+    if (currentPage === "index.html" && linkPage === "home.html") {
+      link.classList.add("active");
+    }
+  });
+}
+
+function syncModalOpenState() {
+  const isAnyModalOpen = Array.from(document.querySelectorAll(".modal-overlay"))
+    .some(modal => modal.classList.contains("show"));
+
+  if (isAnyModalOpen) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function observeModalState() {
+  const modals = document.querySelectorAll(".modal-overlay");
+
+  modals.forEach(modal => {
+    const observer = new MutationObserver(syncModalOpenState);
+
+    observer.observe(modal, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+  });
+
+  syncModalOpenState();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateMobileBottomNavActive();
+  observeModalState();
+});
