@@ -3097,3 +3097,240 @@ nav {
     font-size: 0.78rem !important;
   }
 }
+
+/* =====================================================
+   PAYMENT MODAL
+===================================================== */
+
+.payment-modal {
+  max-width: 430px !important;
+}
+
+.payment-summary {
+  display: grid;
+  gap: 10px;
+}
+
+.payment-summary div {
+  min-height: 54px;
+  padding: 13px 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.payment-summary span {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.payment-summary strong {
+  color: #f8fafc;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.payment-methods {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.payment-method {
+  width: 100%;
+  min-height: 62px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.55);
+  color: #f8fafc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.payment-method:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.payment-method.active {
+  border-color: rgba(96, 165, 250, 0.65);
+  background: rgba(59, 130, 246, 0.16);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.payment-method span {
+  font-size: 1.25rem;
+}
+
+.payment-method strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.payment-method p {
+  margin: 0;
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+.modal-footer.single {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+}
+
+@media (max-width: 768px) {
+  .payment-summary div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    align-items: start;
+  }
+
+  .payment-summary strong {
+    text-align: left;
+  }
+}
+
+/* =====================================================
+   FIX MOBILE ABOUT SECTION + MODAL ABOVE BOTTOM NAV
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Section About biar tidak sempit sebelah kiri */
+  #about {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Override inline style grid-template-columns:1fr 1fr */
+  #about > div[style*="grid-template-columns"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 44px !important;
+  }
+
+  #about > div[style*="grid-template-columns"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #about h3 {
+    font-size: 1.12rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 18px !important;
+  }
+
+  #about .features-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 14px !important;
+  }
+
+  #about .feature-item {
+    width: 100% !important;
+    padding: 14px !important;
+    border-radius: 16px !important;
+    display: grid !important;
+    grid-template-columns: 38px 1fr !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+  }
+
+  #about .feature-icon {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important;
+  }
+
+  #about .feature-text {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #about .feature-text h4 {
+    font-size: 0.86rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 5px !important;
+  }
+
+  #about .feature-text p {
+    font-size: 0.76rem !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+
+  /* Pricing di mobile biar full dan rapi */
+  .pricing-section {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .price-card {
+    width: 100% !important;
+    padding: 22px !important;
+  }
+
+  /* Modal selalu di atas bottom navbar */
+  .modal-overlay {
+    z-index: 30000 !important;
+    align-items: flex-start !important;
+    padding-top: 72px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-bottom: 110px !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-overlay.show {
+    display: flex !important;
+  }
+
+  .modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: calc(100vh - 150px) !important;
+    overflow-y: auto !important;
+    margin-bottom: 90px !important;
+  }
+
+  /* Bottom nav tetap di bawah, tapi kalah layer dari modal */
+  .mobile-bottom-nav {
+    z-index: 9000 !important;
+  }
+
+  /* Kalau modal muncul sebelum bottom nav di HTML, bottom nav disembunyikan */
+  .modal-overlay.show ~ .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  .modal-overlay.show ~ footer ~ .mobile-bottom-nav {
+    display: none !important;
+  }
+}

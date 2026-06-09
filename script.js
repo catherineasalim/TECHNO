@@ -913,6 +913,8 @@ function clearCampusForm() {
 }
 
 
+
+
 /* =========================
    CLOSE MODAL
 ========================= */
@@ -975,3 +977,38 @@ window.submitCampusForm = submitCampusForm;
 
 window.showSuccess = showSuccess;
 window.closeSuccessModal = closeSuccessModal;
+
+
+function openPaymentModal() {
+  const modal = document.getElementById("paymentModal");
+  if (modal) modal.classList.add("show");
+}
+
+function closePaymentModal() {
+  const modal = document.getElementById("paymentModal");
+  if (modal) modal.classList.remove("show");
+}
+
+function selectPaymentMethod(button) {
+  document.querySelectorAll(".payment-method").forEach(item => {
+    item.classList.remove("active");
+  });
+
+  button.classList.add("active");
+}
+
+function confirmSubscription() {
+  localStorage.setItem("pathly_subscription", "active");
+
+  closePaymentModal();
+
+  showSuccess(
+    "Berhasil Berlangganan",
+    "Kamu sudah aktif berlangganan Pathly Premium selama 1 bulan."
+  );
+}
+
+window.openPaymentModal = openPaymentModal;
+window.closePaymentModal = closePaymentModal;
+window.selectPaymentMethod = selectPaymentMethod;
+window.confirmSubscription = confirmSubscription;
