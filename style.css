@@ -3762,3 +3762,41 @@ nav {
     background:rgba(59,130,246,.22);
     transform:translateY(-1px);
 }
+.apply-header-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    margin-bottom:20px;
+}
+
+.saved-profile-chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+    border:1px solid rgba(77,136,255,.35);
+
+    background:rgba(77,136,255,.12);
+    color:#cfe0ff;
+
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.saved-profile-chip:hover{
+    background:rgba(77,136,255,.20);
+}
+
+.apply-header-row{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+    flex-direction:row !important;
+    width:100%;
+}
