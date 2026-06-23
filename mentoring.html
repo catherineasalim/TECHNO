@@ -54,6 +54,16 @@
 
       <div class="modal-section-title">Data Mentee</div>
 
+<div class="mentee-header">
+    <div class="modal-section-title">Data Mentee</div>
+
+    <button type="button"
+            class="saved-profile-chip"
+            onclick="loadSavedDataMentor()">
+        💾 Saved Data
+    </button>
+</div>
+
       <div class="form-grid">
         <div class="form-group">
           <label>Nama Lengkap</label>
@@ -250,5 +260,36 @@
   <a href="campus.html">Campus</a>
 </div>
 </div>
+
+
+
+<script>
+function loadSavedDataMentor() {
+
+  const data = JSON.parse(
+    localStorage.getItem("pathlyUserData")
+  );
+
+  if (!data) {
+    alert("Belum ada data tersimpan.");
+    return;
+  }
+
+  document.getElementById("bookName").value =
+    data.name || "";
+
+  document.getElementById("bookEmail").value =
+    data.email || "";
+
+  document.getElementById("bookPhone").value =
+    data.phone || "";
+
+  document.getElementById("bookUniversity").value =
+    data.university || "";
+
+  document.getElementById("bookMajor").value =
+    data.major || "";
+}
+</script>
 </body>
 </html>

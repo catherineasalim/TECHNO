@@ -62,7 +62,23 @@
       </p>
     </div>
 
+    
     <div class="modal-body">
+
+      <div class="modal-body">
+
+  <div class="apply-header-row">
+    <div class="modal-section-title">
+        Data Pelamar
+    </div>
+
+    <button
+        type="button"
+        class="saved-profile-chip"
+        onclick="loadSavedData()">
+        💾 Saved Data
+    </button>
+</div>
       <div class="form-grid">
         <div class="form-group">
           <label>Nama Lengkap</label>
@@ -105,6 +121,7 @@
         <button class="modal-submit" onclick="submitApplyForm()">Kirim Lamaran →</button>
       </div>
     </div>
+  <div class="form-grid">
 
   </div>
 </div>
@@ -131,5 +148,65 @@
   <a href="mentoring.html">Mentor</a>
   <a href="campus.html">Campus</a>
 </div>
+
+
+<script>
+function saveUserData() {
+  const data = {
+    name: document.getElementById("applyName")?.value || "",
+    email: document.getElementById("applyEmail")?.value || "",
+    phone: document.getElementById("applyPhone")?.value || "",
+    university: document.getElementById("applyUniversity")?.value || "",
+    major: document.getElementById("applyMajor")?.value || "",
+    linkedin: document.getElementById("applyLinkedin")?.value || ""
+  };
+
+  localStorage.setItem(
+    "pathlyUserData",
+    JSON.stringify(data)
+  );
+}
+
+function loadSavedData() {
+
+  const data = JSON.parse(
+    localStorage.getItem("pathlyUserData")
+  );
+
+  if (!data) {
+    alert("Belum ada data tersimpan.");
+    return;
+  }
+
+  document.getElementById("applyName").value =
+    data.name || "";
+
+  document.getElementById("applyEmail").value =
+    data.email || "";
+
+  document.getElementById("applyPhone").value =
+    data.phone || "";
+
+  document.getElementById("applyUniversity").value =
+    data.university || "";
+
+  document.getElementById("applyMajor").value =
+    data.major || "";
+
+  document.getElementById("applyLinkedin").value =
+    data.linkedin || "";
+}
+
+const originalSubmitApplyForm = window.submitApplyForm;
+
+window.submitApplyForm = function () {
+
+  saveUserData();
+
+  if (typeof originalSubmitApplyForm === "function") {
+    originalSubmitApplyForm();
+  }
+};
+</script>
 </body>
 </html>
